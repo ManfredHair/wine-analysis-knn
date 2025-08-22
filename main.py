@@ -41,8 +41,7 @@ classifier1 = KNeighborsClassifier(n_neighbors=3)
 classifier1.fit(x_train, y_train)
 
 # avaliar
-y_pred = classifier1.predict(x_test)
-accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
+acc_holdout = classifier1.score(x_test, y_test)
+print(f'Accuracy Holdout: {acc_holdout*100}%')
 
 ###
