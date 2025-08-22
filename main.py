@@ -24,14 +24,25 @@ df.describe()
 x = wine.data
 y = wine.target
 
-print(x.shape, y.shape)
+#print(x.shape, y.shape)
 
 
 ### KNN com Holdout simples (70% treino - 30% teste)
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42, stratify=y)
 
-print(x_train.shape, y_train.shape)
-print(x_test.shape, y_test.shape)
+#print(x_train.shape, y_train.shape)
+#print(x_test.shape, y_test.shape)
 
 # Definir o modelo KNN com k=3
+classifier1 = KNeighborsClassifier(n_neighbors=3)
+
+# Treinar o modelo com os dados de treinamento
+classifier1.fit(x_train, y_train)
+
+# avaliar
+y_pred = classifier1.predict(x_test)
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+###
